@@ -1,10 +1,14 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import * as ReactDOM from 'react-dom';
-
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './components/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// const root = createRoot(App);
-// root.render(document.getElementById('root'));
+const rootElement = document.getElementById('app');
+const root = createRoot(rootElement);
+root.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="*" element={<App />} />
+    </Routes>
+  </BrowserRouter>,
+);
